@@ -132,7 +132,6 @@ const car1: car = {
 
 // console.log(car1);
 
-
 // third
 
 interface Person3 {
@@ -145,3 +144,31 @@ function displayPerson(person: Person3): void {
 }
 
 // displayPerson({ name: "Kunal", age: 22 });
+
+// fourth
+
+interface Mathfunction {
+  (a: number, b: number): number;
+}
+
+const add: Mathfunction = (a, b) => a + b;
+
+// console.log(add(10, 20));
+
+// fifth
+
+interface DoubleNumer4 {
+  (num: number): number;
+}
+
+const doubleNumber2: DoubleNumer4 = (num) => num * 2;
+
+// console.log(doubleNumber2(10));
+
+interface squareNumber {
+  (num: number): number;
+}
+
+const squareNumber2: squareNumber = (num) => num * num;
+
+// console.log(squareNumber2(8));
