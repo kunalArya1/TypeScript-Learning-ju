@@ -72,18 +72,17 @@ let student: {
 
 // Eleventh
 
-
-let personDetails :{
+let personDetails: {
   name: String;
   age: number;
   hobbies: String[];
-  address : {
-    street : String,
-    city : String
+  address: {
+    street: String;
+    city: String;
   };
-  isStudent : boolean;
+  isStudent: boolean;
   scores: number[];
-  extraInfo :null
+  extraInfo: null;
 } = {
   name: "Kunal",
   age: 22,
@@ -95,50 +94,72 @@ let personDetails :{
   isStudent: false,
   scores: [1, 2, 3, 4, 5],
   extraInfo: null,
-}
+};
 
 console.log(personDetails);
 
-
 // twelveth
 
- // interSection TypeScript 
+// interSection TypeScript
 
-type persontype = { name: String, age: number};
+type persontype = { name: String; age: number };
 
-const person2 : persontype = {
-  name: "Kunal",
-  age: 22
-}
-
-type student = persontype & { studentId: number};
-
-const student1 : student = {
+const person2: persontype = {
   name: "Kunal",
   age: 22,
-  studentId: 8
-}
+};
 
-type teacher = persontype &  { subject: String};
+type student = persontype & { studentId: number };
 
-const teacher : teacher = { 
+const student1: student = {
   name: "Kunal",
   age: 22,
-  subject: "Maths"
-}
+  studentId: 8,
+};
 
+type teacher = persontype & { subject: String };
+
+const teacher: teacher = {
+  name: "Kunal",
+  age: 22,
+  subject: "Maths",
+};
 
 // thirteenth
 
-let id  : string | number = 123;
+let id: string | number = 123;
 
 // fourteenth
 
-type studentEn = ( number | string )[];
+type studentEn = (number | string)[];
 
-const studentEnrolled : studentEn = [1, 2, 3, 4, 5, "Kunal", "Neha", "Jay"];
+const studentEnrolled: studentEn = [1, 2, 3, 4, 5, "Kunal", "Neha", "Jay"];
 
+let studentKunal: (number | string)[] = [1, 2, 3, 4, 5, "Kunal", "Neha", "Jay"];
 // console.log(studentEnrolled);
 
-
 // fifteenth
+
+const mixedType: (string | number | boolean)[] = [
+  1,
+  2,
+  3,
+  4,
+  5,
+  "Kunal",
+  "Neha",
+  "Jay",
+  true,
+  false,
+];
+
+/**
+ * Type Inference
+ *
+ *  -> it automaticallly give type to the variable based on its value assigned to that variable.
+ *
+ */
+
+
+let nameTypeInference = 999;
+console.log(nameTypeInference);
