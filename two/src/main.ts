@@ -72,7 +72,7 @@ function getArea(Shape: Shape): number {
   }
 }
 
-console.log(getArea({ kind: "circle", radious: 10 }));
+// console.log(getArea({ kind: "circle", radious: 10 }));
 
 // sixth
 
@@ -248,12 +248,12 @@ const questions: quizQuestion[] = [
   },
 ];
 
-console.log(questions);
+// console.log(questions);
 
 function quizChecker(question: quizQuestion, userAnswer: number): boolean {
   return question.correctOptions === userAnswer;
 }
-console.log(quizChecker(questions[0], 1));
+// console.log(quizChecker(questions[0], 1));
 
 type quizChecker = (quizQuestion: quizQuestion, userAnswer: number) => boolean;
 
@@ -261,7 +261,7 @@ const checkQuizAnswer: quizChecker = (quizQuestion, userAnswer) => {
   return quizQuestion.correctOptions === userAnswer;
 };
 
-console.log(checkQuizAnswer(questions[0], 1));
+// console.log(checkQuizAnswer(questions[0], 1));
 
 // fourth
 
@@ -274,5 +274,40 @@ const filterArray: filterFunction<number> = (array, isEven) => {
 const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const isEven = (num: number) => num % 2 === 0;
 
-console.log(filterArray (array, isEven));
+// console.log(filterArray (array, isEven));
 
+// fifth
+
+type mapFunction<T> = (array: T[], callback: (item: T) => string) => string[];
+
+const doubleToString: mapFunction<number> = (array, callback) => {
+  return array.map(callback);
+};
+
+// Another way
+type mapFunction2<T, R> = (array: T[], callback: (item: T) => R) => R[];
+
+const doubleToString2: mapFunction2<number, string> = (array, callback) => {
+  return array.map(callback);
+};
+
+const covertToString = (num: number) => num.toString();
+const array2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// console.log(doubleToString(array, covertToString));
+// console.log(doubleToString2(array, covertToString));
+
+
+
+// sixth 
+
+
+type reduceFuction < T > = (array: T[], reducecer: (acc: number, num: number) => T) => T;
+
+
+const sumAccumlator: reduceFuction<number> = (acc, reducer) => {
+  return ;
+};
+
+const numbers = [1,2,3,4,5,6,7,8,9,10];
+const reducer = (acc: number,num: number) => acc+num;
