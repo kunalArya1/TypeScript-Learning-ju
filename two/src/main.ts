@@ -172,3 +172,97 @@ interface squareNumber {
 const squareNumber2: squareNumber = (num) => num * num;
 
 // console.log(squareNumber2(8));
+
+/**
+ *
+ *    Generic Statred
+ */
+
+// first
+
+function identity<T>(arg: T): T {
+  return arg;
+}
+
+// console.log(identity<number>(10));
+
+function findItem<T>(arr: T[]) {
+  if (arr.length === 0) {
+    return -1;
+  } else {
+    return arr[0];
+  }
+}
+
+// console.log(findItem([11, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+
+findItem<number>([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+
+function checkPresence<T>(arr: T[], item: T) {
+  return arr.includes(item);
+}
+
+// console.log(checkPresence([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 9));
+
+// second
+
+interface Book {
+  title: string;
+  author: string;
+  year: string;
+  genre?: string;
+}
+
+const book1: Book = {
+  title: "The Alchemist",
+  author: "Paulo Coelho",
+  year: "1988",
+  genre: "Fiction",
+};
+const book2: Book = {
+  title: "The Secret",
+  author: "Rhonda Byrne",
+  year: "2006",
+};
+
+// console.log(book1, book2);
+
+// third
+
+type quizQuestion = {
+  question: string;
+  options: string[];
+  correctOptions: number;
+};
+
+const questions: quizQuestion[] = [
+  {
+    question: " what is react ?",
+    options: ["Library", "Framework", "Language", "Platform"],
+    correctOptions: 1,
+  },
+  {
+    question: " what is angular ?",
+    options: ["Library", "Framework", "Language", "Platform"],
+    correctOptions: 1,
+  },
+];
+
+console.log(questions);
+
+function quizChecker(question: quizQuestion, userAnswer: number): boolean {
+  return question.correctOptions === userAnswer;
+}
+console.log(quizChecker(questions[0], 1));
+
+type quizChecker = (quizQuestion: quizQuestion, userAnswer: number) => boolean;
+
+const checkQuizAnswer: quizChecker = (quizQuestion, userAnswer) => {
+  return quizQuestion.correctOptions === userAnswer;
+};
+
+console.log(checkQuizAnswer(questions[0], 1));
+
+// fourth
+
+type filterFunction = {};
