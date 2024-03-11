@@ -265,4 +265,14 @@ console.log(checkQuizAnswer(questions[0], 1));
 
 // fourth
 
-type filterFunction = {};
+type filterFunction<T> = (array: T[], predicate: (item: T) => boolean) => T[];
+
+const filterArray: filterFunction<number> = (array, isEven) => {
+  return array.filter(isEven);
+};
+
+const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const isEven = (num: number) => num % 2 === 0;
+
+console.log(filterArray (array, isEven));
+
